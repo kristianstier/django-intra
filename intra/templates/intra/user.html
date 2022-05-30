@@ -1,0 +1,33 @@
+{% extends 'intra/index.html' %}
+{% block content %}
+<!-- <h2>Profil {{user.username}}</h2> -->
+<div id="user_profil">
+    <div id="user_profil_image">
+        <img src="{{ request.scheme }}://{{ request.get_host }}/{{ user.image }}" />
+    </div>
+    <div id="user_profil_info">
+        <table>
+            <tr>
+                <td>Name: </td>
+                <td>{{ user.first_name }} {{ user.last_name }}</td>
+            </tr>
+            <tr>
+                <td>Position:</td>
+                <td>{{ user.jobtitle }}</td>
+            </tr>
+            <tr>
+                <td>Department: </td>
+                <td>{{ user.department }}</td>
+            </tr>
+            <tr>
+                <td>Mail: </td>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <td>Phone: </td>
+                <td>{{ user.telefon }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+{% endblock %}

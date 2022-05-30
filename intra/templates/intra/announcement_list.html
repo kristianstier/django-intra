@@ -1,0 +1,26 @@
+{% extends 'intra/index.html' %}
+{% block content %}
+{% if is_author %}
+<div class="flex">
+    <a href="{% url 'announcement-add' %}" class="button action">Add announcement</a>
+</div>
+{% endif %}
+{% for announcement in object_list %}
+<div class="announcement">
+    {% if is_author %}
+    <div class="flex end announcement_options">
+        <a href="{% url 'announcement-update' announcement.id %}"><i class="fas fa-edit"></i></a>
+        <a href="{% url 'announcement-delete' announcement.id %}" class="delete"><i class="fas fa-trash"></i></a>
+    </div>
+    {% endif %}
+    <h3>{{ announcement.title }}</h3>
+    <p>{{ announcement.description }}</p>
+    <p class="meta">
+        <span class="author">
+            Author: {{ announcement.author.first_name }} {{ announcement.author.last_name }}
+        </span>
+        <span class="created_at">{{ announcement.created_at }}</span>
+    </p>
+</div>    
+{% endfor %}
+{% endblock %}

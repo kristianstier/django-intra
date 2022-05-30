@@ -1,0 +1,26 @@
+<div id="mobile_menu" class="mobile">
+    <ul class="flex col">
+        {% if request.user.is_authenticated %}
+        <li><a href="#" id="hide_mobile_menu"><i class="fa-solid fa-times"></i>&nbsp;Close menu</a></li>
+        <li>
+            <a href="{% url 'dashboard' %}" {% if request.path == '/' %}class="active"{% endif %}>
+                <i class="fa-solid fa-house"></i>
+                &nbsp;Dashboard
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'userlist' %}" {% if request.path|slice:':5' == '/user' %}class="active"{% endif %}>
+                <i class="fa-solid fa-users"></i>
+                &nbsp;Employees
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'announcements' %}" {% if request.path|slice:':13' == '/announcement' %}class="active"{% endif %}>
+                <i class="fas fa-inbox"></i>
+                &nbsp;Announcements
+            </a>
+        </li>
+        <li><a href="{% url 'logout' %}"><i class="fa-solid fa-door-open"></i>&nbsp;Logout</a></li>
+        {% endif %}
+    </ul>
+</div>

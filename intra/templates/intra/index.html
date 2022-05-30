@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'intra/style/stylesheet.css' %}">
+        <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'intra/style/gridjs/mermaid.min.css' %}" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+        <script type="text/javascript" src="{% static 'intra/js/gridjs/gridjs.umd.js' %}"></script>
+        <script type="text/javascript" src="{% static 'intra/js/main.js' %}"></script>
+        <title>{% block title %}Intra{% endblock %}</title>
+    </head>
+    <body>
+        {% include 'intra/mobile_menu.html' %}
+        {% include 'intra/top_menu.html' %}
+        <div class="flex h100">
+            {% include 'intra/main_menu.html' %}
+            <main>
+                {% block content %}{% endblock %}
+            </main>
+        </div>   
+    </body>
+</html>

@@ -1,0 +1,9 @@
+{% extends 'intra/index.html' %}
+{% block content %}
+<form action="#" method="POST" class="default">
+    <p>Are you sure you want to delete the accouncement <b><i>{{ object }}</i></b> ?</p>
+    {% csrf_token %}
+    <input type="submit" value="Delete"/>
+    <a href="{% url 'announcements' %}" class="button">Back</a>
+</form>
+{% endblock %}

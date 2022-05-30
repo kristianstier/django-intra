@@ -1,0 +1,9 @@
+{% if request.user.is_authenticated %}
+<div id="top_menu">
+    <ul class="flex between">
+        <li class="pd20">Logged in as: {{ request.user.username }}</li>
+        <li class="desktop"><a class="pd20" href="{% url 'logout' %}"><i class="fa-solid fa-door-open"></i>&nbsp;Logout</a></li>
+        <li class="pd20 mobile" id="show_mobile_menu"><i class="fa-solid fa-bars"></i></li>
+    </ul>
+</div>
+{% endif %}

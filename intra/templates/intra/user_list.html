@@ -1,0 +1,5 @@
+{% extends 'intra/index.html' %}
+{% block content %}
+<div id="userTable"></div>
+<script>render_user_table(" {{ object_list|escapejs }} ");</script>
+{% endblock %}

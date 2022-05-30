@@ -1,0 +1,35 @@
+{% extends 'intra/index.html' %}
+{% block content %}
+<div id="dashboard">
+    <div id="announcements">
+        <h3>Recent announcements</h3>
+        {% for announcement in announcements %}
+        <div class="announcement">
+            <h3>{{ announcement.title }}</h3>
+            <p>{{ announcement.description }}</p>
+            <p class="meta">
+                <span class="author">
+                    Author: {{ announcement.author.first_name }} {{ announcement.author.last_name }}
+                </span>
+                <span class="created_at">{{ announcement.created_at }}</span>
+            </p>
+        </div>    
+        {% endfor %}
+    </div>
+    <div id="pinned_announcements">
+        <h3>Pinned Announcements</h3>
+        {% for announcement in pinned_announcements %}
+        <div class="announcement">
+            <h3>{{ announcement.title }}</h3>
+            <p>{{ announcement.description }}</p>
+            <p class="meta">
+                <span class="author">
+                    Author: {{ announcement.author.first_name }} {{ announcement.author.last_name }}
+                </span>
+                <span class="created_at">{{ announcement.created_at }}</span>
+            </p>
+        </div>    
+        {% endfor %}
+    </div>    
+</div>        
+{% endblock %}
